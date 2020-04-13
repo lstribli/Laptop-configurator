@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
-
+import HEADER from './Header'
 import './App.css';
+import SUMMARY from './Summary';
+import FEATURES from './Features';
+// import TOTAL from './TOTAL'
+// import TOTALVAL from './TotalValue';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -97,23 +101,21 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <HEADER />
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            {features}
-          </form>
+          <FEATURES />
+          {features}
           <section className="main__summary">
-            <h2>Your cart</h2>
+            <SUMMARY />
             {summary}
+            {/* <TOTAL /> */}
             <div className="summary__total">
               <div className="summary__total__label">Total</div>
               <div className="summary__total__value">
                 {USCurrencyFormat.format(total)}
               </div>
             </div>
+            {/* <TOTALVAL /> */}
           </section>
         </main>
       </div>
